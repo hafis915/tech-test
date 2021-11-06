@@ -37,6 +37,7 @@ const longestPolindrome = (word) => {
   let str = word
   let polindromeCheck = ""
   let polindromeWord = ""
+  let result = ""
   for (let i = 0; i < str.length; i++) {
     if (word[i] != " ") {
       // console.log(word[i])
@@ -48,12 +49,13 @@ const longestPolindrome = (word) => {
         // console.log(polindromeCheck.length, polindromeWord.length)
         if (polindromeCheck.length > polindromeWord.length) {
           polindromeWord = polindromeCheck
+          result = word.slice(0, i + 1)
           // console.log(polindromeWord)
         }
       }
     }
   }
-  return polindromeWord
+  return result
 }
 
 // console.log(longestPolindrome(" kasur rusak"), "<< HASIL")
@@ -66,13 +68,13 @@ const answerForNumberTwo = (word) => {
     let str = strArr.join("")
     // console.log(str, "<<<< STR")
     let newPolindromeWord = longestPolindrome(str)
-    console.log(newPolindromeWord, "<<<< Polindrom")
+    // console.log(newPolindromeWord, "<<<< Polindrom")
     if (newPolindromeWord.length > polindromeWord.length) {
       polindromeWord = newPolindromeWord
     }
     strArr.shift()
   }
-  return polindromeWord
+  return polindromeWord.trim()
   // console.log(polindromeWord, "<<< HASIL")
 }
 
