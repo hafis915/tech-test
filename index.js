@@ -32,27 +32,53 @@ const isPolindrome = (str) => {
 }
 
 const longestPolindrome = (word) => {
+  console.log("=========== WORD ===========")
+  console.log(word)
+  let str = word
   let polindromeCheck = ""
   let polindromeWord = ""
-  for (let i = 0; i < word.length; i++) {
+  for (let i = 0; i < str.length; i++) {
     if (word[i] != " ") {
-      console.log(word[i])
+      // console.log(word[i])
       polindromeCheck += word[i]
-      console.log(polindromeCheck)
-      console.log(isPolindrome(polindromeCheck), "<< CHECK")
+      // console.log(polindromeCheck)
+      // console.log(isPolindrome(polindromeCheck), "<< CHECK")
       if (isPolindrome(polindromeCheck)) {
         console.log(" BETUL ", polindromeCheck)
-        console.log(polindromeCheck.length, polindromeWord.length)
+        // console.log(polindromeCheck.length, polindromeWord.length)
         if (polindromeCheck.length > polindromeWord.length) {
           polindromeWord = polindromeCheck
+          console.log(polindromeWord)
         }
       }
     }
   }
-
-  return (polindromeWord)
+  return polindromeWord
 }
 
-// console.log(longestPolindrome("di rumah saya ada kasur rusak"))
+// console.log(longestPolindrome(" kasur rusak"), "<< HASIL")
+
+const answerForNumberTwo = (word) => {
+  let strArr = word.split("")
+  let polindromeWord = ""
+
+  while (strArr.length > 0) {
+    let str = strArr.join("")
+    console.log(str, "<<<< STR")
+    let newPolindromeWord = longestPolindrome(str)
+    console.log(newPolindromeWord, "<<<< Polindrom")
+    if (newPolindromeWord.length > polindromeWord.length) {
+      polindromeWord = newPolindromeWord
+    }
+    strArr.shift()
+  }
+  return polindromeWord
+  // console.log(polindromeWord, "<<< HASIL")
+}
+
+const soal1a = binaryToDecimal(101101)
+const soal1b = decimalToBinary(19)
+const saol2a = answerForNumberTwo("di rumah saya ada kasur rusak")
+// console.log(answerForNumberTwo("di rumah saya ada kasur rusak"))
 // binaryToDecimal(101101)
 // console.log(decimalToBinary(19))
