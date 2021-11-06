@@ -53,6 +53,6 @@ const longestPolindrome = (word) => {
   return (polindromeWord)
 }
 
-console.log(longestPolindrome("di rumah saya ada kasur rusak"))
+// console.log(longestPolindrome("di rumah saya ada kasur rusak"))
 // binaryToDecimal(101101)
 // console.log(decimalToBinary(19))
